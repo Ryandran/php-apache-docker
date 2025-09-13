@@ -17,10 +17,6 @@ services:
       MYSQL_DATABASE: casaos
       MYSQL_USER: casaos
       MYSQL_PASSWORD: casaos
-      PGID: $PGID
-      PUID:	$PUID
-      REMOTE_SQL:	Value
-      TZ:	$TZ
     volumes:
       - ./DATA/AppData/mariadb/config
   adminer:
@@ -30,6 +26,7 @@ services:
       - "8090:8090"
     depends_on:
       - db
+
 
 
 
