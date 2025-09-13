@@ -4,7 +4,7 @@ services:
     image: php:8.2-apache
     container_name: php8.2-apache
     ports:
-      - "80:80"
+      - "8090:80"
     volumes:
       - ./app:/var/www/html/
     depends_on:
@@ -13,18 +13,24 @@ services:
     image: mariadb
     container_name: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: casaos
+      MYSQL_DATABASE: casaos
+      MYSQL_USER: casaos
+      MYSQL_PASSWORD: casaos
+      PGID: $PGID
+      PUID:	$PUID
+      REMOTE_SQL:	Value
+      TZ:	$TZ
+    ports:
+      - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./DATA/AppData/mariadb/config
   adminer:
     image: adminer
     container_name: adminer
     ports:
       - "8090:8090"
     depends_on:
-
       - db
+
 
