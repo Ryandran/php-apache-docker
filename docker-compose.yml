@@ -2,7 +2,7 @@ version: '3.9'
 services:
   web:
     image: php:8.2-apache
-    container_name: php8.2-apache
+    container_name: apache
     ports:
       - "8000:80"
     volumes:
@@ -21,8 +21,6 @@ services:
       PUID:	$PUID
       REMOTE_SQL:	Value
       TZ:	$TZ
-    ports:
-      - "3306:3306"
     volumes:
       - ./DATA/AppData/mariadb/config
   adminer:
@@ -32,6 +30,7 @@ services:
       - "8090:8090"
     depends_on:
       - db
+
 
 
 
