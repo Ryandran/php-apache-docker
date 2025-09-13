@@ -23,7 +23,8 @@ services:
     image: adminer
     container_name: adminer
     ports:
-      - "8000:8000"
+      - "8090:8090"
     depends_on:
 
       - db
+
